@@ -11,8 +11,8 @@ const VotingData = () => {
         <Image
           src={logo}
           className='ml-4 rounded-md'
-          height={200}
-          width={200}
+          height={100}
+          width={100}
           alt='School Logo'
         />
         <div className='flex gap-5'>
