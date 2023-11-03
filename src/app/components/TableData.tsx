@@ -36,9 +36,9 @@ function TableData() {
         <Table.HeadCell className='text-xl'>Votes</Table.HeadCell>
       </Table.Head>
       <Table.Body className='divide-y'>
-        {nameList?.map((data, index) => (
+        {nameList?.map((data) => (
           <Table.Row
-            key={index}
+            key={data.id}
             className='bg-white dark:border-gray-700 dark:bg-gray-800'
           >
             <Table.Cell className='whitespace-nowrap font-medium text-gray-900 dark:text-white'>
