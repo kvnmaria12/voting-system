@@ -36,24 +36,19 @@ function TableData() {
         <Table.HeadCell className='text-xl'>Votes</Table.HeadCell>
       </Table.Head>
       <Table.Body className='divide-y'>
-        {nameList?.map((data, index) => {
-          return (
-            <Table.Row
-              key={index}
-              className='bg-white dark:border-gray-700 dark:bg-gray-800'
-            >
-              <Table.Cell
-                key={index}
-                className='whitespace-nowrap font-medium text-gray-900 dark:text-white'
-              >
-                {data.userDetails.name}
-              </Table.Cell>
-              <Table.Cell key={index} className='text-xl font-semibold'>
-                {data.userDetails.value}
-              </Table.Cell>
-            </Table.Row>
-          );
-        })}
+        {nameList?.map((data, index) => (
+          <Table.Row
+            key={index}
+            className='bg-white dark:border-gray-700 dark:bg-gray-800'
+          >
+            <Table.Cell className='whitespace-nowrap font-medium text-gray-900 dark:text-white'>
+              {data.userDetails.name}
+            </Table.Cell>
+            <Table.Cell className='text-xl font-semibold'>
+              {data.userDetails.value}
+            </Table.Cell>
+          </Table.Row>
+        ))}
       </Table.Body>
     </Table>
   );
