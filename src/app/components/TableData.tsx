@@ -2,37 +2,21 @@
 
 import { useEffect, useState } from 'react';
 
+import useSWR from 'swr';
+
 import { Table, Spinner } from 'flowbite-react';
+import { fetcher } from '@/api';
 
 function TableData() {
-  const [list, setList] = useState<any>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { data, error, isLoading } = useSWR('/.json', fetcher);
 
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      const data = await fetch(
-        'https://ris-evm-3o-default-rtdb.firebaseio.com/.json'
-      );
+  let nameList;
 
-      const response = await data.json();
-
-      if (response) {
-        setIsLoading(false);
-        setList(response);
-      }
-    };
-
-    getData();
-  }, []);
-
-  console.log(list);
-
-  const nameList = Object.keys(list).map((data) => {
-    return { id: data, userDetails: list[data] };
-  });
-
-  console.log(nameList);
+  if (data) {
+    nameList = Object.keys(data).map((value) => {
+      return { id: data, userDetails: data[value] };
+    });
+  }
 
   return (
     <div>
